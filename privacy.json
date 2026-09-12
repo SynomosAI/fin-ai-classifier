@@ -64,13 +64,13 @@
     "recipient_disclosed": false
   },
   "automated_decision": {
-    "used": false,
+    "used": true,
     "transparency": true,
     "human_review_available": true,
     "no_price_discrimination": true
   },
   "impact_assessment": {
-    "required": false,
+    "required": true,
     "report_retention_days": 1095
   },
   "audit": {
