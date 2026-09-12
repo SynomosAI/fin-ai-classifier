@@ -1,0 +1,77 @@
+{
+  "_instructions": "本文件是行业接入四件套之一。域 ID 一经分配不复用。填完跑平台侧校验器自测。",
+  "profile_version": "domain/1.0",
+  "domain_id": "fin",
+  "domain_name": "金融 · AI 应用风险分级",
+  "operator": {
+    "org": "待认领 — 本域开放给具备资质的运营方",
+    "contact": "见 README 的「认领方式」",
+    "agent_card": "https://SynomosAI.github.io/.well-known/agent-card.json"
+  },
+  "attributes": [
+    {
+      "key": "fin.risk_class",
+      "type": "enum",
+      "values": [
+        "minimal",
+        "limited",
+        "high",
+        "unacceptable",
+        "undetermined"
+      ],
+      "issuer_required": true,
+      "ttl_days": 365,
+      "assurance_min": "verified",
+      "visibility_default": "private"
+    },
+    {
+      "key": "fin.use_case_type",
+      "type": "enum",
+      "values": [
+        "credit_decision",
+        "insurance_underwriting",
+        "investment_advice",
+        "aml_monitoring",
+        "customer_service",
+        "internal_ops",
+        "other"
+      ],
+      "issuer_required": false,
+      "ttl_days": 365,
+      "assurance_min": "self-declared",
+      "visibility_default": "private"
+    },
+    {
+      "key": "fin.human_oversight",
+      "type": "enum",
+      "values": [
+        "none",
+        "post_hoc",
+        "in_the_loop",
+        "human_decides"
+      ],
+      "issuer_required": true,
+      "ttl_days": 365,
+      "assurance_min": "verified",
+      "visibility_default": "private"
+    },
+    {
+      "key": "fin.disclosure_obligation",
+      "type": "boolean",
+      "issuer_required": false,
+      "ttl_days": 365,
+      "assurance_min": "verified",
+      "visibility_default": "private"
+    }
+  ],
+  "checker_endpoint": "mcp://pending-claim/fin-checker",
+  "gate_map_ref": "./gate-map.json",
+  "privacy_ref": "./privacy.json",
+  "red_lines": [
+    "不生成任何面向客户的投资建议、产品推荐或买卖结论",
+    "不得输出「已合规」「监管已认可」类结论性表述",
+    "高风险类应用须人工复核，AI 不得单独给出可上线结论"
+  ],
+  "valid_from": "2026-09-12",
+  "status": "RESERVED"
+}
